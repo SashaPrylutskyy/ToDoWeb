@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>To-Do</title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <div class="container">
+        <div th:each="el : ${tasks}">
+            <form action="/" method="post" class="task">
+                <input class="checkbox" type="checkbox">
+                <img src="/icons/priority/Major.png" alt="Major priority">
+
+                <a href="id=${id}" class="title">
+                    <h7>Доробити дизайн To Do web</h7>
+                </a>
+
+                <a id="editBtn" href="/edit/id=">🖋️ Edit</a>
+                <a id="deleteBtn" href="/delete/id=">🗑 Delete</a>
+            </form>
+        </div>
+    </div>
+
+    <div class="container containerTwo">
+        <div class="newTask">
+            <form action="/" method="post">
+                <input disabled class="checkbox" type="checkbox">
+                <select class="my-select-menu" name="priority" style="width: 65px">
+                    <option>Major</option>
+                    <option>High</option>
+                    <option>Average</option>
+                    <option>Low</option>
+                    <option>Minor</option>
+                </select>
+                <input class="contentInput" type="text" name="contentName" placeholder="Add new task...">
+
+                <button class="submitBtn" type="submit">Add</button>
+            </form>
+        </div>
+    </div>
+
+
+
+</body>
+</html>
